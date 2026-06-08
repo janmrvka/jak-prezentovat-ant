@@ -105,7 +105,7 @@ export default function ManifestoSlide({ slide, content, config = {} }) {
             value={content.statement}
             as="p"
             multiline={true}
-            className={`text-3xl md:text-5xl lg:text-statement font-semibold ${textColor} leading-relaxed mb-4 md:mb-6 lg:mb-10 relative whitespace-pre-line`}
+            className={`text-5xl md:text-7xl lg:text-hero font-bold ${textColor} leading-[0.9] lg:leading-[0.85] mb-4 md:mb-6 lg:mb-10 relative whitespace-pre-line`}
           >
             {content.statement}
           </EditableText>

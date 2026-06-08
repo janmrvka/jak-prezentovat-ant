@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>(ant) — Colors</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../components.css">
+  <style>
+    body { padding: 64px; background: #fff; }
+    .header { border-bottom: 2px solid var(--ant-black); padding-bottom: 24px; margin-bottom: 48px; display: flex; justify-content: space-between; align-items: end; }
+    .row-eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ant-gray-dark); margin: 48px 0 16px; }
+    .grid { display: grid; gap: 16px; }
+    .grid--core { grid-template-columns: 2fr 1fr 1fr; }
+    .grid--accents { grid-template-columns: repeat(5, 1fr); }
+    .grid--grays { grid-template-columns: repeat(2, 1fr); }
+    .swatch {
+      border-radius: 12px;
+      padding: 24px;
+      aspect-ratio: 4 / 3;
+      display: flex; flex-direction: column; justify-content: space-between;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+    .swatch.large { aspect-ratio: 16 / 9; }
+    .swatch .name { font-family: var(--font-display); font-weight: 700; font-size: 28px; line-height: 1; }
+    .swatch .meta { font-family: ui-monospace, monospace; font-size: 12px; opacity: .85; }
+    .swatch .role { font-family: var(--font-body); font-weight: 400; font-size: 14px; max-width: 28ch; line-height: 1.4; }
+    .ink-on-light { color: var(--ant-black); }
+    .ink-on-dark  { color: var(--ant-white); }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
+    .demo { padding: 32px; border-radius: 12px; min-height: 240px; display:flex; flex-direction:column; justify-content:space-between; }
+    .demo .hd { font-family: var(--font-display); font-weight: 700; font-size: 36px; line-height: .95; }
+    .demo .lp { font-family: var(--font-body); font-weight: 400; font-size: 14px; }
+    .green-paren { color: var(--ant-green); }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <div class="eyebrow" style="color: var(--ant-gray-dark);">Design system · Color</div>
+      <h1 class="h2" style="margin-top:8px;">Paleta (ant)</h1>
+    </div>
+    <p class="caption" style="max-width: 36ch;">Green is signature, never body. Grays are scaffolding, never placeholders. Pastels pair with black ink only.</p>
+  </header>
+
+  <div class="row-eyebrow">Core</div>
+  <div class="grid grid--core">
+    <div class="swatch large ink-on-dark" style="background: var(--ant-green); color: var(--ant-black);">
+      <div>
+        <div class="name">(ant) Green</div>
+        <div class="meta">#5BFFC4</div>
+      </div>
+      <div class="role">Primary signature. CTAs, hover, accent on black, brand parens on dark surfaces.</div>
+    </div>
+    <div class="swatch large ink-on-dark" style="background: var(--ant-black);">
+      <div>
+        <div class="name">Black</div>
+        <div class="meta">#000000</div>
+      </div>
+      <div class="role">Default ink. Label boxes. Logo on light.</div>
+    </div>
+    <div class="swatch large ink-on-light" style="background: #fff;">
+      <div>
+        <div class="name">White</div>
+        <div class="meta">#FFFFFF</div>
+      </div>
+      <div class="role">Default canvas.</div>
+    </div>
+  </div>
+
+  <div class="row-eyebrow">Accents — for placeholders, accent blocks, label rotation</div>
+  <div class="grid grid--accents">
+    <div class="swatch ink-on-light" style="background: var(--ant-peach);"><div><div class="name">Peach</div><div class="meta">#FFE4C1</div></div><div class="role">brown family</div></div>
+    <div class="swatch ink-on-light" style="background: var(--ant-lavender);"><div><div class="name">Lavender</div><div class="meta">#DAD4FF</div></div><div class="role">purple</div></div>
+    <div class="swatch ink-on-light" style="background: var(--ant-yellow);"><div><div class="name">Yellow</div><div class="meta">#FFFD92</div></div><div class="role">yellow</div></div>
+    <div class="swatch ink-on-light" style="background: var(--ant-pink);"><div><div class="name">Pink</div><div class="meta">#FFE2EB</div></div><div class="role">pink</div></div>
+    <div class="swatch ink-on-light" style="background: var(--ant-sky);"><div><div class="name">Sky</div><div class="meta">#D7EDFF</div></div><div class="role">blue</div></div>
+  </div>
+
+  <div class="row-eyebrow">UI grays — scaffolding only</div>
+  <div class="grid grid--grays">
+    <div class="swatch ink-on-light" style="background: var(--ant-gray-light);"><div><div class="name">Gray Light</div><div class="meta">#E7E8E9</div></div><div class="role">Rules, dividers, muted UI surfaces.</div></div>
+    <div class="swatch ink-on-dark" style="background: var(--ant-gray-dark);"><div><div class="name">Gray Dark</div><div class="meta">#AEB1B7</div></div><div class="role">Captions, muted text. <strong>Never</strong> as placeholder fill.</div></div>
+  </div>
+
+  <div class="row-eyebrow">Surface combinations</div>
+  <div class="pair">
+    <div class="demo" style="background: var(--ant-black); color: #fff;">
+      <div class="hd">(WOW) je naše <span class="green-paren">(PROČ).</span></div>
+      <div class="lp">surface-dark · green parens emphasise tokens</div>
+    </div>
+    <div class="demo" style="background: var(--ant-green); color: var(--ant-black);">
+      <div class="hd">Crafted for (WOW).</div>
+      <div class="lp">surface-green · use sparingly, high-impact</div>
+    </div>
+  </div>
+</body>
+</html>

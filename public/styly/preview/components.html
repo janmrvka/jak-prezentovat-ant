@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>(ant) — Components</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../components.css">
+  <style>
+    body { padding: 64px; background: #fff; }
+    .header { border-bottom: 2px solid var(--ant-black); padding-bottom: 24px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: end; }
+    .row-eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ant-gray-dark); margin: 48px 0 16px; }
+    .stack { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .row { display: grid; grid-template-columns: 240px 1fr; gap: 32px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--ant-rule); }
+    .row .nm { font-family: var(--font-display); font-weight: 600; font-size: 18px; }
+    .row .desc { font-family: var(--font-body); font-weight: 400; font-size: 13px; color: var(--ant-gray-dark); margin-top: 4px; }
+    .ph-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .label-stage { background: var(--ant-gray-light); padding: 32px; border-radius: 12px; display:flex; gap: 32px; align-items:center; flex-wrap: wrap; }
+    .label-stage--dark { background: var(--ant-black); }
+    .lbl { height: 56px; }
+    .lbl img { height: 100%; display:block; }
+    .card-demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card-demo .card .h { font-family: var(--font-display); font-weight: 700; font-size: 22px; }
+    .form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 720px; }
+    .field { display:flex; flex-direction: column; gap: 6px; }
+    .field label { font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+    .field input, .field textarea, .field select {
+      font-family: var(--font-body); font-size: 16px;
+      padding: 14px 16px;
+      border: 1.5px solid var(--ant-black);
+      background: #fff;
+      border-radius: 8px;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: 3px solid var(--ant-green); outline-offset: 2px;
+    }
+    .checkbox { display:flex; gap: 10px; align-items: center; padding: 12px; border: 1.5px solid var(--ant-black); border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <div class="eyebrow" style="color: var(--ant-gray-dark);">Design system · Components</div>
+      <h1 class="h2" style="margin-top:8px;">Buttons, labels, placeholders, cards</h1>
+    </div>
+    <p class="caption" style="max-width: 38ch;">Primitives wired to the tokens. Use as-is or extend; don't re-define colors locally.</p>
+  </header>
+
+  <div class="row-eyebrow">Buttons</div>
+  <div class="row">
+    <div><div class="nm">Primary</div><div class="desc">Default CTA. Green pill, black ink. Hover inverts.</div></div>
+    <div class="stack">
+      <a class="btn btn--primary btn--lg" href="#">Pojďme se pobavit <span class="arrow">→</span></a>
+      <a class="btn btn--primary" href="#">Pojďme se pobavit</a>
+      <a class="btn btn--primary btn--sm" href="#">Více</a>
+    </div>
+  </div>
+  <div class="row">
+    <div><div class="nm">Ghost</div><div class="desc">Secondary action. Transparent, black border.</div></div>
+    <div class="stack">
+      <a class="btn btn--ghost btn--lg" href="#">Více o nás</a>
+      <a class="btn btn--ghost" href="#">Více o nás</a>
+      <a class="btn btn--ghost btn--sm" href="#">Více</a>
+    </div>
+  </div>
+  <div class="row">
+    <div><div class="nm">On dark</div><div class="desc">Inverted ghost on a dark stage.</div></div>
+    <div class="stack" style="background: var(--ant-black); padding: 24px; border-radius: 12px;">
+      <a class="btn btn--primary" href="#">Pojďme se pobavit <span class="arrow">→</span></a>
+      <a class="btn btn--invert" href="#">Více o nás</a>
+    </div>
+  </div>
+
+  <div class="row-eyebrow">Labels — black on light, inverted on dark</div>
+  <div class="row">
+    <div><div class="nm">Light surface</div><div class="desc">Original. Rotation values: −10°, 20°, 25°. Adjacent labels alternate direction.</div></div>
+    <div class="label-stage">
+      <span class="lbl label-rot-l"><img src="../assets/labels/WOW.svg" alt="(WOW)"></span>
+      <span class="lbl label-rot-r"><img src="../assets/labels/AHA.svg" alt="(AHA)"></span>
+      <span class="lbl label-rot-l"><img src="../assets/labels/GO.svg" alt="(GO)"></span>
+      <span class="lbl label-rot-r2"><img src="../assets/labels/NEW.svg" alt="(NEW)"></span>
+      <span class="lbl"><img src="../assets/labels/TIP.svg" alt="(TIP)"></span>
+    </div>
+  </div>
+  <div class="row">
+    <div><div class="nm">Dark surface</div><div class="desc">Apply <code>label-invert</code> to flip the chip.</div></div>
+    <div class="label-stage label-stage--dark">
+      <span class="lbl label-rot-l label-invert"><img src="../assets/labels/WOW.svg" alt="(WOW)"></span>
+      <span class="lbl label-rot-r label-invert"><img src="../assets/labels/AHA.svg" alt="(AHA)"></span>
+      <span class="lbl label-rot-l label-invert"><img src="../assets/labels/WTF.svg" alt="(WTF)"></span>
+      <span class="lbl label-rot-r2 label-invert"><img src="../assets/labels/HOT.svg" alt="(HOT)"></span>
+      <span class="lbl label-invert"><img src="../assets/labels/THX.svg" alt="(THX)"></span>
+    </div>
+  </div>
+
+  <div class="row-eyebrow">Placeholders — `[ ]` brackets, pastel + 45° stripes</div>
+  <div class="row">
+    <div><div class="nm">Aspect ratios</div><div class="desc">portrait 3:4 · square 1:1 · landscape 16:9 · hero 21:9. Caption Inter Bold, uppercase, +2% tracking.</div></div>
+    <div class="ph-grid">
+      <figure class="placeholder placeholder--portrait placeholder--lavender">
+        <span class="placeholder__caption">[ portrét ]</span>
+      </figure>
+      <figure class="placeholder placeholder--square placeholder--peach">
+        <span class="placeholder__caption">[ produkt ]</span>
+      </figure>
+      <figure class="placeholder placeholder--portrait placeholder--yellow">
+        <span class="placeholder__caption">[ tým ]</span>
+      </figure>
+      <figure class="placeholder placeholder--square placeholder--sky">
+        <span class="placeholder__caption">[ ilustrace ]</span>
+      </figure>
+    </div>
+  </div>
+  <div class="row">
+    <div><div class="nm">On dark</div><div class="desc">Stripes flip to white at 0.08 opacity. Pastel fill stays.</div></div>
+    <div class="surface-dark" style="padding: 24px; border-radius: 12px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+      <figure class="placeholder placeholder--landscape placeholder--pink">
+        <span class="placeholder__caption">[ scéna ]</span>
+      </figure>
+      <figure class="placeholder placeholder--landscape placeholder--lavender">
+        <span class="placeholder__caption">[ video ]</span>
+      </figure>
+      <figure class="placeholder placeholder--landscape placeholder--yellow">
+        <span class="placeholder__caption">[ screenshot ]</span>
+      </figure>
+    </div>
+  </div>
+
+  <div class="row-eyebrow">Cards</div>
+  <div class="row">
+    <div><div class="nm">Variants</div><div class="desc">Outlined default, flat (gray), green hero, dark.</div></div>
+    <div class="card-demo">
+      <div class="card">
+        <div class="h">Outlined</div>
+        <p>Krátká věta. Tečka = brzda. Default card.</p>
+        <a class="btn btn--ghost btn--sm" href="#">Více</a>
+      </div>
+      <div class="card card--green">
+        <div class="h">(WOW) blok</div>
+        <p>Punchy line, zavírá sekci.</p>
+        <a class="btn btn--primary btn--sm" style="--btn-bg: #000; --btn-fg: var(--ant-green); --btn-bd: #000;" href="#">Pojďme se pobavit</a>
+      </div>
+      <div class="card card--dark">
+        <div class="h">Dark</div>
+        <p>Když chceš stage moment.</p>
+        <a class="btn btn--invert btn--sm" href="#">Více</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-eyebrow">Form fields</div>
+  <div class="row">
+    <div><div class="nm">Inputs</div><div class="desc">Black border, 8px radius, green focus ring.</div></div>
+    <div class="form-row">
+      <div class="field">
+        <label for="i1">Jméno</label>
+        <input id="i1" type="text" placeholder="Jak Vám máme říkat?">
+      </div>
+      <div class="field">
+        <label for="i2">E-mail</label>
+        <input id="i2" type="email" placeholder="vy@firma.cz">
+      </div>
+      <div class="field" style="grid-column: 1 / -1;">
+        <label for="i3">Co řešíme?</label>
+        <textarea id="i3" rows="3" placeholder="Stručně. Jako (ant) to napíšeme."></textarea>
+      </div>
+      <div class="checkbox" style="grid-column: 1 / -1;">
+        <input type="checkbox" id="c1" checked>
+        <label for="c1" style="text-transform:none; letter-spacing: 0; font-weight: 400;">Souhlasím se zpracováním údajů.</label>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

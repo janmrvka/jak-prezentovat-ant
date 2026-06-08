@@ -22,12 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="cs">
-      <head>
-        <link rel="dns-prefetch" href="https://use.typekit.net" />
-        <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
-        <link rel="preload" href="https://use.typekit.net/egi7nqf.css" as="style" />
-        <link rel="stylesheet" href="https://use.typekit.net/egi7nqf.css" />
-      </head>
+      <head />
       <body className="font-sans antialiased">
         <EditModeProvider>
           {children}

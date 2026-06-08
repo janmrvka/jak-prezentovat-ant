@@ -1,0 +1,169 @@
+/* ========================================================================
+   (ant) — COMPONENTS
+   Buttons, labels (3-letter chips), placeholders, cards, form controls.
+   Import AFTER colors_and_type.css.
+   ======================================================================== */
+
+/* ---------- BUTTONS ----------------------------------------------------- */
+.btn {
+  --btn-bg: var(--ant-black);
+  --btn-fg: var(--ant-white);
+  --btn-bd: var(--ant-black);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  padding: 0.95rem 1.4rem;
+  border: var(--bw) solid var(--btn-bd);
+  border-radius: var(--radius-pill);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease-standard),
+              background var(--dur-base) var(--ease-standard),
+              color var(--dur-base) var(--ease-standard);
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn:focus-visible { outline: 3px solid var(--ant-green); outline-offset: 2px; }
+
+.btn--primary  { --btn-bg: var(--ant-green); --btn-fg: var(--ant-black); --btn-bd: var(--ant-green); }
+.btn--primary:hover { --btn-bg: var(--ant-black); --btn-fg: var(--ant-green); --btn-bd: var(--ant-black); }
+
+.btn--ghost    { --btn-bg: transparent;        --btn-fg: var(--ant-black); --btn-bd: var(--ant-black); }
+.btn--ghost:hover { --btn-bg: var(--ant-black); --btn-fg: var(--ant-white); }
+
+.btn--invert   { --btn-bg: var(--ant-white);   --btn-fg: var(--ant-black); --btn-bd: var(--ant-white); }
+
+.btn--lg { font-size: 1.1rem; padding: 1.15rem 1.75rem; }
+.btn--sm { font-size: 0.875rem; padding: 0.6rem 1rem; }
+
+.btn .arrow {
+  display: inline-block; width: 1em; height: 1em; transition: transform var(--dur-base) var(--ease-standard);
+}
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ---------- LABELS (3-letter chips) ------------------------------------- */
+/* Two flavours:
+   1) <ant-label code="WOW"></ant-label>  — full SVG asset (recommended)
+   2) .label-chip CSS-only fallback when SVG is unavailable               */
+.label-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  background: var(--ant-black);
+  color: var(--ant-white);
+  padding: 0.35em 0.55em 0.32em;
+  line-height: 1;
+  border-radius: 2px;
+}
+.label-chip::before { content: "("; opacity: .9; }
+.label-chip::after  { content: ")"; opacity: .9; }
+.label-chip--invert { background: var(--ant-white); color: var(--ant-black); outline: 1px solid var(--ant-black); }
+
+/* SVG label container — handles rotation tricks the manuál calls for     */
+.label-svg { display: inline-block; height: 2.4rem; }
+.label-svg img, .label-svg svg { height: 100%; width: auto; display: block; }
+.label-rot-l { transform: rotate(-10deg); transform-origin: center; }
+.label-rot-r { transform: rotate(20deg); transform-origin: center; }
+.label-rot-r2 { transform: rotate(25deg); transform-origin: center; }
+.label-invert { filter: invert(1); }
+
+/* ---------- PLACEHOLDERS (square brackets) ------------------------------ */
+.placeholder {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: var(--ph-color, var(--ant-peach));
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 14px,
+    rgba(0,0,0,0.08) 14px,
+    rgba(0,0,0,0.08) 15px
+  );
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 0;
+  min-width: 120px;
+  min-height: 120px;
+}
+.placeholder--strong-pattern {
+  background-image: repeating-linear-gradient(
+    45deg, transparent 0, transparent 14px,
+    rgba(0,0,0,0.12) 14px, rgba(0,0,0,0.12) 15px);
+}
+.placeholder__caption {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #000;
+  background: rgba(255,255,255,0.85);
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+.placeholder--portrait  { aspect-ratio: 3 / 4; }
+.placeholder--landscape { aspect-ratio: 16 / 9; }
+.placeholder--square    { aspect-ratio: 1 / 1; }
+.placeholder--hero      { aspect-ratio: 21 / 9; }
+
+.placeholder--peach    { --ph-color: var(--ant-peach); }
+.placeholder--lavender { --ph-color: var(--ant-lavender); }
+.placeholder--yellow   { --ph-color: var(--ant-yellow); }
+.placeholder--pink     { --ph-color: var(--ant-pink); }
+.placeholder--sky      { --ph-color: var(--ant-sky); }
+
+/* On dark surfaces, the diagonal lines invert to white */
+.surface-dark .placeholder,
+.placeholder--on-dark {
+  background-image: repeating-linear-gradient(
+    45deg, transparent 0, transparent 14px,
+    rgba(255,255,255,0.08) 14px, rgba(255,255,255,0.08) 15px);
+}
+
+/* ---------- CARD -------------------------------------------------------- */
+.card {
+  background: var(--ant-white);
+  border: var(--bw) solid var(--ant-black);
+  padding: var(--s-6);
+  border-radius: var(--radius-md);
+  display: flex; flex-direction: column; gap: var(--s-4);
+}
+.card--flat { border: none; background: var(--ant-gray-light); }
+.card--green { background: var(--ant-green); }
+.card--dark  { background: var(--ant-black); color: var(--ant-white); border-color: var(--ant-black); }
+
+/* ---------- ETC --------------------------------------------------------- */
+.divider { height: 1px; background: var(--ant-rule); border: 0; }
+.divider--ink { height: 1px; background: var(--ant-black); border: 0; }
+.surface-dark .divider { background: rgba(255,255,255,.16); }
+
+.kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .75rem;
+  background: var(--ant-gray-light);
+  border: 1px solid var(--ant-gray-dark);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* ---------- LOGO MARK --------------------------------------------------- */
+.ant-logo {
+  display: inline-block;
+  height: 1.6rem;
+  vertical-align: middle;
+}
+.ant-logo svg, .ant-logo img { height: 100%; width: auto; display: block; }

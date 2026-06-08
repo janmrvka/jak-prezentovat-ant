@@ -5,8 +5,9 @@ export const SLIDES = [
     "id": "title",
     "template": "HeroSlide",
     "content": {
-      "title": "Jak prezentovat?",
-      "subtitle": ""
+      "title": "",
+      "subtitle": "",
+      "image": "/images/old-logo.png"
     },
     "config": {
       "backgroundColor": "bg-black",
@@ -20,8 +21,8 @@ export const SLIDES = [
     "id": "co-nedelejte",
     "template": "CheckerSlide",
     "content": {
-      "title": "Co nedělejte.",
-      "subtitle": "Praktická varování před nejčastějšími chybami.",
+      "title": "Co nedělejte. Tady je kompletní seznam všeho, co se nesmí dělat při prezentaci klientovi, abyste předešli problémům a zbytečným chybám které se stávají.",
+      "subtitle": "Praktická varování před nejčastějšími chybami, které by mohly vést k neúspěchu. Soubor doporučení, čeho se vyvarovat.",
       "items": [
         "❌ Nesdílejte více tabulek/grafů na jednom slajdu",
         "❌ Nemějte více lidí s kamerou zapnutou",
@@ -29,7 +30,14 @@ export const SLIDES = [
         "❌ Nepřipravujte se poslední den",
         "❌ Nelaďte prezentaci všichni dohromady",
         "❌ Neprezentujte něco, co jste nedělali (bez detailní znalosti)",
-        "❌ Nemluvte o technických detailech, když management chce čísla"
+        "❌ Nemluvte o technických detailech, když management chce čísla",
+        "❌ Nečtěte text ze slajdu slovo od slova",
+        "❌ Nemějte na slajdu víc než 3 různé fonty",
+        "❌ Nepoužívejte animace na každém prvku",
+        "❌ Nezapomeňte zkontrolovat pravopis a gramatiku",
+        "❌ Neprezentujte bez záložního plánu při technickém výpadku",
+        "❌ Nemluvte příliš rychle nebo příliš pomalu",
+        "❌ Neignorujte otázky publika"
       ]
     },
     "config": {
@@ -37,9 +45,10 @@ export const SLIDES = [
       "textColor": "text-white",
       "accentColor": "text-ant-green",
       "accentLine": true,
-      "itemLayout": "list"
+      "itemLayout": "grid",
+      "smallItems": true
     },
-    "notes": ""
+    "notes": "Záměrně přeplněný slide — ukázka jak prezentace nemá vypadat"
   },
   {
     "id": "stalo-se",
@@ -47,9 +56,9 @@ export const SLIDES = [
     "content": {
       "statement": "Stalo se.",
       "sticker": {
-        "name": "WTF",
+        "image": "/styly/assets/labels/WTF.svg",
         "position": "top-right",
-        "rotation": 10
+        "rotation": -10
       }
     },
     "config": {
@@ -57,7 +66,23 @@ export const SLIDES = [
       "textColor": "text-black",
       "backgroundVariant": "none"
     },
-    "notes": "Přechodový slide — uvození příkladu / situace, která se stala"
+    "notes": "Přechodový slide — uvození příkladu"
+  },
+  {
+    "id": "title-copy",
+    "template": "HeroSlide",
+    "content": {
+      "title": "Jak prezentovat?",
+      "subtitle": "",
+      "image": "/logo/ant-logo-white.svg"
+    },
+    "config": {
+      "backgroundColor": "bg-black",
+      "textColor": "text-white",
+      "accentColor": "text-ant-green",
+      "backgroundVariant": "none"
+    },
+    "notes": ""
   },
   {
     "id": "prezentace-ktere-prodavaji",
@@ -65,9 +90,9 @@ export const SLIDES = [
     "content": {
       "statement": "Prezentace,\nkteré prodávají.",
       "sticker": {
-        "name": "WOW",
+        "image": "/styly/assets/labels/WOW.svg",
         "position": "top-right",
-        "rotation": 12
+        "rotation": 20
       }
     },
     "config": {
@@ -82,12 +107,17 @@ export const SLIDES = [
     "template": "HeroSlide",
     "content": {
       "title": "Příprava.",
-      "subtitle": ""
+      "subtitle": "",
+      "sticker": {
+        "image": "/styly/assets/labels/GO.svg",
+        "position": "bottom-right",
+        "rotation": 25
+      }
     },
     "config": {
-      "backgroundColor": "bg-ant-yellow",
-      "textColor": "text-black",
-      "accentColor": "text-black",
+      "backgroundColor": "bg-black",
+      "textColor": "text-white",
+      "accentColor": "text-ant-green",
       "backgroundVariant": "none"
     },
     "notes": "Sekce: Příprava"
@@ -98,14 +128,14 @@ export const SLIDES = [
     "content": {
       "statement": "Jednoduše\na jasně.",
       "sticker": {
-        "name": "YES",
+        "image": "/styly/assets/labels/YES.svg",
         "position": "top-right",
-        "rotation": -8
+        "rotation": -10
       }
     },
     "config": {
-      "backgroundColor": "bg-black",
-      "textColor": "text-white",
+      "backgroundColor": "bg-ant-green",
+      "textColor": "text-black",
       "backgroundVariant": "none"
     },
     "notes": ""
@@ -115,7 +145,12 @@ export const SLIDES = [
     "template": "HeroSlide",
     "content": {
       "title": "Hodnota.",
-      "subtitle": "Výsledky"
+      "subtitle": "Výsledky",
+      "sticker": {
+        "image": "/styly/assets/labels/WIN.svg",
+        "position": "bottom-right",
+        "rotation": 20
+      }
     },
     "config": {
       "backgroundColor": "bg-ant-yellow",
@@ -131,9 +166,9 @@ export const SLIDES = [
     "content": {
       "statement": "Přidaná\nhodnota.",
       "sticker": {
-        "name": "WIN",
+        "image": "/styly/assets/labels/HOT.svg",
         "position": "top-right",
-        "rotation": 8
+        "rotation": 25
       }
     },
     "config": {
@@ -149,13 +184,13 @@ export const SLIDES = [
     "content": {
       "statement": "Čitelnost.",
       "sticker": {
-        "name": "HOW",
+        "image": "/styly/assets/labels/HOW.svg",
         "position": "top-right",
-        "rotation": 12
+        "rotation": -10
       }
     },
     "config": {
-      "backgroundColor": "bg-ant-brown",
+      "backgroundColor": "bg-ant-lavender",
       "textColor": "text-black",
       "backgroundVariant": "none"
     },
@@ -166,12 +201,17 @@ export const SLIDES = [
     "template": "HeroSlide",
     "content": {
       "title": "Odkaz.",
-      "subtitle": ""
+      "subtitle": "",
+      "sticker": {
+        "image": "/styly/assets/labels/NEW.svg",
+        "position": "bottom-right",
+        "rotation": 20
+      }
     },
     "config": {
-      "backgroundColor": "bg-ant-yellow",
-      "textColor": "text-black",
-      "accentColor": "text-black",
+      "backgroundColor": "bg-black",
+      "textColor": "text-white",
+      "accentColor": "text-ant-green",
       "backgroundVariant": "none"
     },
     "notes": "Sekce: Odkaz"
@@ -183,16 +223,16 @@ export const SLIDES = [
       "title": "Nové, lepší, hned.",
       "subtitle": "Tým (ant)",
       "sticker": {
-        "name": "GO",
+        "image": "/styly/assets/labels/GO.svg",
         "position": "top-right",
-        "rotation": 8,
+        "rotation": 20,
         "size": "lg"
       }
     },
     "config": {
-      "backgroundColor": "bg-black",
-      "textColor": "text-white",
-      "accentColor": "text-ant-green"
+      "backgroundColor": "bg-ant-green",
+      "textColor": "text-black",
+      "accentColor": "text-black"
     },
     "notes": "Závěrečný slide"
   }

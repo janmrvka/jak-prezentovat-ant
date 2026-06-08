@@ -17,6 +17,7 @@ export default function CheckerSlide({ slide, content, config = {} }) {
     accentColor = 'text-ant-green',
     accentLine = false,
     itemLayout = 'list',
+    smallItems = false,
   } = config;
 
   const { title, subtitle, items, footer, highlightFooter, links, featuredLink } = content;
@@ -49,7 +50,7 @@ export default function CheckerSlide({ slide, content, config = {} }) {
             path="content.title"
             value={title}
             as="h1"
-            className={`text-5xl md:text-7xl lg:text-8xl font-bold ${textColor} mb-2 md:mb-4 lg:mb-6 whitespace-pre-line`}
+            className={`${smallItems ? 'text-base md:text-xl lg:text-2xl font-normal' : 'text-5xl md:text-7xl lg:text-8xl font-bold'} ${textColor} mb-2 md:mb-4 lg:mb-6 whitespace-pre-line`}
           >
             <TextReveal delay={0.2} staggerDelay={0.1}>
               {title}
@@ -70,7 +71,7 @@ export default function CheckerSlide({ slide, content, config = {} }) {
               path="content.subtitle"
               value={subtitle}
               as="p"
-              className={`text-xl md:text-3xl lg:text-4xl ${textColor} opacity-80 mb-6 md:mb-10 lg:mb-14 whitespace-pre-line`}
+              className={`${smallItems ? 'text-xs md:text-sm lg:text-base' : 'text-xl md:text-3xl lg:text-4xl'} ${textColor} opacity-80 mb-6 md:mb-10 lg:mb-14 whitespace-pre-line`}
             >
               {subtitle}
             </EditableText>
@@ -85,11 +86,11 @@ export default function CheckerSlide({ slide, content, config = {} }) {
                 <div className={`border ${isDark ? 'border-white/20' : 'border-black/20'} rounded-xl p-5 md:p-7 text-left h-full`}>
                   {item.includes(' — ') ? (
                     <>
-                      <p className={`text-xl md:text-2xl lg:text-3xl font-bold ${textColor} mb-2`}>{item.split(' — ')[0]}</p>
-                      <p className={`text-lg md:text-xl lg:text-2xl ${textColor} opacity-75 font-medium whitespace-pre-line`}>{item.split(' — ').slice(1).join(' — ')}</p>
+                      <p className={`${smallItems ? 'text-xs md:text-sm lg:text-base font-medium' : 'text-xl md:text-2xl lg:text-3xl font-bold'} ${textColor} mb-2`}>{item.split(' — ')[0]}</p>
+                      <p className={`${smallItems ? 'text-xs md:text-sm' : 'text-lg md:text-xl lg:text-2xl'} ${textColor} opacity-75 font-medium whitespace-pre-line`}>{item.split(' — ').slice(1).join(' — ')}</p>
                     </>
                   ) : (
-                    <p className={`text-xl md:text-2xl lg:text-3xl font-semibold ${textColor}`}>{item}</p>
+                    <p className={`${smallItems ? 'text-xs md:text-sm lg:text-base font-medium' : 'text-xl md:text-2xl lg:text-3xl font-semibold'} ${textColor}`}>{item}</p>
                   )}
                 </div>
               </FadeIn>

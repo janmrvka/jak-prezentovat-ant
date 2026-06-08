@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>(ant) — Spacing & Layout</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../components.css">
+  <style>
+    body { padding: 64px; background: #fff; }
+    .header { border-bottom: 2px solid var(--ant-black); padding-bottom: 24px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: end; }
+    .row-eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ant-gray-dark); margin: 40px 0 16px; }
+    .scale { display: grid; gap: 12px; max-width: 720px; }
+    .scale-row { display: grid; grid-template-columns: 90px 90px 1fr; align-items: center; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--ant-rule); }
+    .scale-row .tok { font-family: ui-monospace, monospace; font-size: 13px; }
+    .scale-row .px { font-family: var(--font-body); font-size: 13px; color: var(--ant-gray-dark); }
+    .bar { background: var(--ant-black); height: 16px; border-radius: 4px; }
+    .containers { display:grid; gap: 12px; }
+    .ctn { background: var(--ant-gray-light); height: 72px; display:flex; align-items:center; justify-content: space-between; padding: 0 24px; font-family: ui-monospace, monospace; font-size: 13px; }
+    .ctn span:last-child { font-family: var(--font-body); font-size: 13px; color: var(--ant-gray-dark); }
+    .ctn--default { width: min(100%, 1280px); margin: 0 auto; }
+    .ctn--wide { width: min(100%, 1680px); margin: 0 auto; background: var(--ant-yellow); }
+    .breakpoints { display:flex; gap:12px; flex-wrap: wrap;}
+    .bp { padding: 14px 18px; border: 1.5px solid var(--ant-black); border-radius: 999px; font-family: var(--font-body); font-size: 14px; }
+    .bp b { font-family: var(--font-display); font-weight: 700; }
+    .radii { display: flex; gap: 24px; margin-top: 16px; }
+    .radius-card { width: 140px; height: 100px; background: var(--ant-black); display: flex; align-items: center; justify-content: center; color: #fff; font-family: ui-monospace, monospace; font-size: 12px; }
+    .r0 { border-radius: 0; }
+    .r1 { border-radius: 6px; }
+    .r2 { border-radius: 12px; }
+    .r3 { border-radius: 999px; }
+    .section-pad { background: var(--ant-gray-light); padding-block: clamp(5rem, 10vw, 8rem); display:grid; place-items: center; border-radius: 12px; }
+    .section-pad .label { font-family: ui-monospace, monospace; font-size: 13px; }
+    .shadow-demo { display:flex; gap:32px; }
+    .shadow-card { background: #fff; padding: 24px; border-radius: 12px; width: 220px; height: 140px; display: flex; align-items: end; font-family: var(--font-body); font-weight: 700; }
+    .shadow-1 { box-shadow: var(--shadow-card); }
+    .shadow-2 { box-shadow: var(--shadow-pop); }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <div class="eyebrow" style="color: var(--ant-gray-dark);">Design system · Spacing</div>
+      <h1 class="h2" style="margin-top:8px;">Layout, scale & radii</h1>
+    </div>
+    <p class="caption" style="max-width: 38ch;">Fluid containers, fluid section padding. (ant) breathes — whitespace is content.</p>
+  </header>
+
+  <div class="row-eyebrow">Spacing scale (8pt-ish)</div>
+  <div class="scale">
+    <div class="scale-row"><span class="tok">--s-1</span><span class="px">4 px</span><div class="bar" style="width: 4px;"></div></div>
+    <div class="scale-row"><span class="tok">--s-2</span><span class="px">8 px</span><div class="bar" style="width: 8px;"></div></div>
+    <div class="scale-row"><span class="tok">--s-3</span><span class="px">12 px</span><div class="bar" style="width: 12px;"></div></div>
+    <div class="scale-row"><span class="tok">--s-4</span><span class="px">16 px</span><div class="bar" style="width: 16px;"></div></div>
+    <div class="scale-row"><span class="tok">--s-5</span><span class="px">24 px</span><div class="bar" style="width: 24px;"></div></div>
+    <div class="scale-row"><span class="tok">--s-6</span><span class="px">32 px</span><div class="bar" style="width: 32px;"></div></div>
+    <div class="scale-row"><span class="tok">--s-7</span><span class="px">48 px</span><div class="bar" style="width: 48px;"></div></div>
+    <div class="scale-row"><span class="tok">--s-8</span><span class="px">64 px</span><div class="bar" style="width: 64px;"></div></div>
+    <div class="scale-row"><span class="tok">--s-9</span><span class="px">96 px</span><div class="bar" style="width: 96px;"></div></div>
+  </div>
+
+  <div class="row-eyebrow">Containers</div>
+  <div class="containers">
+    <div class="ctn ctn--default"><span>--container-default · 1280 max</span><span>reading body</span></div>
+    <div class="ctn ctn--wide" style="background: var(--ant-yellow);"><span>--container-wide · 1680 max</span><span>showcase / hero / grid</span></div>
+  </div>
+
+  <div class="row-eyebrow">Breakpoints</div>
+  <div class="breakpoints">
+    <div class="bp"><b>≤520</b> mobile</div>
+    <div class="bp"><b>≤720</b> tablet</div>
+    <div class="bp"><b>≤960</b> small desktop</div>
+    <div class="bp"><b>≤1200</b> medium desktop</div>
+    <div class="bp"><b>≥1920</b> full</div>
+  </div>
+
+  <div class="row-eyebrow">Section padding · clamp(5rem, 10vw, 8rem)</div>
+  <div class="section-pad"><span class="label">padding-block · fluid 80 → 128 px</span></div>
+
+  <div class="row-eyebrow">Radii</div>
+  <div class="radii">
+    <div class="radius-card r0">0 · placeholder</div>
+    <div class="radius-card r1">6 · sm</div>
+    <div class="radius-card r2">12 · card</div>
+    <div class="radius-card r3">pill · button</div>
+  </div>
+
+  <div class="row-eyebrow">Elevation — flat by default</div>
+  <div class="shadow-demo">
+    <div class="shadow-card shadow-1">--shadow-card</div>
+    <div class="shadow-card shadow-2">--shadow-pop</div>
+  </div>
+</body>
+</html>

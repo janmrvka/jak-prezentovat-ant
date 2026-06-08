@@ -2,6 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Aktiv Grotesk Ex";
+  src: url("/styly/fonts/AktivGroteskEx-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Aktiv Grotesk Ex";
+  src: url("/styly/fonts/AktivGroteskEx-Medium.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Aktiv Grotesk Ex";
+  src: url("/styly/fonts/AktivGroteskEx-SemiBold.otf") format("opentype");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Aktiv Grotesk Ex";
+  src: url("/styly/fonts/AktivGroteskEx-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/styly/fonts/Inter_18pt-Light.ttf") format("truetype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/styly/fonts/Inter_18pt-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/styly/fonts/Inter_28pt-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
 @layer base {
   /* Full-screen slides */
   .slide-container {

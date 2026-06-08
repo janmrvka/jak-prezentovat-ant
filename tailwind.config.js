@@ -10,6 +10,7 @@ module.exports = {
     // Background colors used in slide configs
     'bg-ant-brown',
     'bg-ant-purple',
+    'bg-ant-lavender',
     'bg-ant-yellow',
     'bg-ant-pink',
     'bg-ant-blue',
@@ -34,6 +35,7 @@ module.exports = {
         // Secondary colors
         'ant-brown': '#ffe4c1',
         'ant-purple': '#dad4ff',
+        'ant-lavender': '#dad4ff',
         'ant-yellow': '#fffd92',
         'ant-pink': '#ffe2eb',
         'ant-blue': '#d7edff',

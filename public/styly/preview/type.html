@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>(ant) — Type</title>
+  <meta name="viewport" content="width=1200">
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../components.css">
+  <style>
+    body { padding: 64px; background: #fff; }
+    .card-grid { display: grid; gap: 64px; max-width: 1100px; }
+    .row { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: baseline; }
+    .meta { font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ant-gray-dark); }
+    .meta b { display:block; color: var(--ant-black); font-weight: 700; margin-top: 4px; letter-spacing: 0; text-transform: none; font-size: 14px; }
+    .header { border-bottom: 2px solid var(--ant-black); padding-bottom: 24px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: end; gap: 32px;}
+    .header .eyebrow { color: var(--ant-gray-dark); }
+    .sample { display:flex; flex-direction: column; gap: 6px; }
+    .sample-meta { font-family: ui-monospace, monospace; font-size: 11px; color: var(--ant-gray-dark); }
+    .sample p { margin: 0; }
+    .families { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 40px; border: 2px solid var(--ant-black); border-radius: 12px; }
+    .family-name { font-family: var(--font-display); font-weight: 700; font-size: 80px; line-height: .9; }
+    .family-name.inter { font-family: var(--font-body); font-weight: 700; }
+    .role { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; margin-top: 8px; }
+    .weights { display: grid; gap: 8px; margin-top: 24px; }
+    .weight-line { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--ant-rule); }
+    .weight-line:last-child { border-bottom: 0; }
+    .wsample { font-family: var(--font-display); font-size: 22px; }
+    .wsample.inter { font-family: var(--font-body); }
+    .forbidden { font-family: var(--font-display); font-style: italic; font-size: 22px; color: var(--ant-gray-dark); text-decoration: line-through; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <div class="eyebrow">Design system · Typography</div>
+      <h1 class="h2" style="margin-top:8px;">Aktiv Grotesk Ex + Inter</h1>
+    </div>
+    <p class="caption" style="max-width: 38ch;">Display sets the brand. Body keeps it readable. Italics live in Inter — never on Aktiv Ex.</p>
+  </header>
+
+  <div class="families">
+    <div>
+      <div class="family-name">(Aktiv)</div>
+      <div class="role">Display · headlines · claims</div>
+      <div class="weights">
+        <div class="weight-line"><span class="wsample" style="font-weight:400;">Regular 400</span><span class="caption">H4–H5</span></div>
+        <div class="weight-line"><span class="wsample" style="font-weight:500;">Medium 500</span><span class="caption">H3 · eyebrow head</span></div>
+        <div class="weight-line"><span class="wsample" style="font-weight:600;">SemiBold 600</span><span class="caption">H2 · section</span></div>
+        <div class="weight-line"><span class="wsample" style="font-weight:700;">Bold 700</span><span class="caption">H1 · hero claim</span></div>
+        <div class="weight-line"><span class="forbidden">Italic — never</span><span class="caption">forbidden on Aktiv Ex</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="family-name inter">Inter</div>
+      <div class="role">Body · UI · captions</div>
+      <div class="weights">
+        <div class="weight-line"><span class="wsample inter" style="font-weight:300;">Light 300</span><span class="caption">body default</span></div>
+        <div class="weight-line"><span class="wsample inter" style="font-weight:400;">Regular 400</span><span class="caption">UI · forms · nav</span></div>
+        <div class="weight-line"><span class="wsample inter" style="font-weight:700;">Bold 700</span><span class="caption">strong · emphasis</span></div>
+        <div class="weight-line"><span class="wsample inter" style="font-weight:300; font-style: italic;">Light Italic</span><span class="caption">allowed (rare)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-grid" style="margin-top: 64px;">
+    <div class="row">
+      <div class="meta">H1 hero<b>Aktiv Bold 700</b><span style="font-weight:400; text-transform:none; letter-spacing:0; font-size:12px;">clamp 48 → 136</span></div>
+      <h1 style="font-size: 96px;">(WOW) je naše (PROČ).</h1>
+    </div>
+    <div class="row">
+      <div class="meta">H2 section<b>Aktiv SemiBold 600</b><span style="font-weight:400; text-transform:none; letter-spacing:0; font-size:12px;">clamp 36 → 80</span></div>
+      <h2 style="font-size: 56px;">Weby, co dělají radost.</h2>
+    </div>
+    <div class="row">
+      <div class="meta">H3 value<b>Aktiv Medium 500</b><span style="font-weight:400; text-transform:none; letter-spacing:0; font-size:12px;">clamp 32 → 52</span></div>
+      <h3 style="font-size: 40px;">Crafted for (WOW).</h3>
+    </div>
+    <div class="row">
+      <div class="meta">H4 small<b>Aktiv Regular 400</b></div>
+      <h4>Drobné nadpisy bez váhy.</h4>
+    </div>
+    <div class="row">
+      <div class="meta">Body<b>Inter Light 300</b><span style="font-weight:400; text-transform:none; letter-spacing:0; font-size:12px;">clamp 17 → 22</span></div>
+      <p>Krátké věty. Tečka = brzda. Krátká věta drží pozornost. Když musíš psát odstavec, <strong>rozsekej ho</strong>.</p>
+    </div>
+    <div class="row">
+      <div class="meta">Eyebrow<b>Inter Bold 700 · 8% caps</b></div>
+      <span class="eyebrow">Crafted by (ant)</span>
+    </div>
+    <div class="row">
+      <div class="meta">Caption<b>Inter Regular · gray</b></div>
+      <span class="caption">Vykání primárně. Tykání jen v kariérní komunikaci.</span>
+    </div>
+  </div>
+</body>
+</html>

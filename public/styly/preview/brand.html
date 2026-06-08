@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>(ant) — Brand</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../components.css">
+  <style>
+    body { padding: 64px; background: #fff; }
+    .header { border-bottom: 2px solid var(--ant-black); padding-bottom: 24px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: end; }
+    .row-eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ant-gray-dark); margin: 48px 0 16px; }
+    .logo-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .logo-cell {
+      aspect-ratio: 4 / 3;
+      display: grid; place-items: center;
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .logo-cell.bg-light { background: var(--ant-gray-light); }
+    .logo-cell.bg-black { background: var(--ant-black); }
+    .logo-cell.bg-green { background: var(--ant-green); }
+    .logo-cell img { width: 100%; max-width: 280px; height: auto; }
+    .logo-tag { font-family: var(--font-body); font-size: 12px; color: var(--ant-gray-dark); margin-top: 8px; font-family: ui-monospace, monospace; }
+
+    .labels-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; }
+    .labels-grid figure { margin: 0; aspect-ratio: 1 / 1; background: var(--ant-gray-light); border-radius: 8px; display: grid; place-items: center; padding: 12px; }
+    .labels-grid img { max-width: 100%; height: auto; }
+
+    .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .voice-card { border: 1.5px solid var(--ant-black); border-radius: 12px; padding: 28px; }
+    .voice-card .from { font-family: var(--font-body); font-weight: 400; color: var(--ant-gray-dark); font-size: 16px; margin-bottom: 12px; text-decoration: line-through; }
+    .voice-card .to   { font-family: var(--font-display); font-weight: 600; font-size: 22px; line-height: 1.15; }
+
+    .mantra { background: var(--ant-black); color: #fff; padding: 80px; border-radius: 12px; }
+    .mantra .small { font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ant-gray-dark); }
+    .mantra h2 { font-family: var(--font-display); font-weight: 700; font-size: 96px; line-height: .95; letter-spacing: -0.02em; margin: 16px 0 0; }
+    .mantra .green { color: var(--ant-green); }
+    .mantra .sub { font-family: var(--font-body); font-weight: 300; font-size: 18px; max-width: 60ch; margin-top: 24px; }
+
+    .rule { border: 1.5px solid var(--ant-black); border-radius: 8px; padding: 18px 20px; display: flex; gap: 12px; }
+    .rule .num { font-family: var(--font-display); font-weight: 700; font-size: 22px; min-width: 32px; }
+    .rule .body { font-family: var(--font-body); font-size: 14px; line-height: 1.5; }
+    .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .clearspace { background: var(--ant-gray-light); padding: 48px; border-radius: 12px; display:flex; align-items: center; justify-content: center; gap: 16px; }
+    .clearspace .frame { position: relative; padding: 60px; outline: 1.5px dashed var(--ant-black); }
+    .clearspace .frame img { height: 80px; }
+    .clearspace .x { font-family: ui-monospace, monospace; font-size: 12px; color: var(--ant-gray-dark); }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <div class="eyebrow" style="color: var(--ant-gray-dark);">Design system · Brand</div>
+      <h1 class="h2" style="margin-top:8px;">Logo, labels, voice</h1>
+    </div>
+    <p class="caption" style="max-width: 38ch;">Mantra, mark and the 28-piece label set. Brand parens are part of the wordmark — never strip them.</p>
+  </header>
+
+  <div class="mantra">
+    <div class="small">Mantra</div>
+    <h2>(WOW) je naše <span class="green">(PROČ).</span></h2>
+    <p class="sub">Plaveme proti proudu. Jdeme na hranu, kde se z (WTF) nápadů rodí (WOW) výsledky. Raději riskovat prů*er, než se spokojit s průměrem.</p>
+  </div>
+
+  <div class="row-eyebrow">Logo · primary mark</div>
+  <div class="logo-grid">
+    <div>
+      <div class="logo-cell bg-light"><img src="../assets/logo/ant-logo-black.svg" alt="(ant) black"></div>
+      <div class="logo-tag">on light · use black</div>
+    </div>
+    <div>
+      <div class="logo-cell bg-black"><img src="../assets/logo/ant-logo-green.svg" alt="(ant) green"></div>
+      <div class="logo-tag">on black · use green</div>
+    </div>
+    <div>
+      <div class="logo-cell bg-green"><img src="../assets/logo/ant-logo-black.svg" alt="(ant) on green"></div>
+      <div class="logo-tag">on green · use black</div>
+    </div>
+  </div>
+
+  <div class="row-eyebrow">Clear space · width of letter "a" minimum</div>
+  <div class="clearspace">
+    <div class="frame">
+      <img src="../assets/logo/ant-logo-black.svg" alt="(ant)">
+    </div>
+    <div class="x">↑ ochranná zóna · width of "a" letter on every side</div>
+  </div>
+
+  <div class="row-eyebrow">Labels · 28 chips, 4 groups</div>
+  <div class="labels-grid">
+    <figure><img src="../assets/labels/WOW.svg" alt="WOW"></figure>
+    <figure><img src="../assets/labels/AHA.svg" alt="AHA"></figure>
+    <figure><img src="../assets/labels/OMG.svg" alt="OMG"></figure>
+    <figure><img src="../assets/labels/WTF.svg" alt="WTF"></figure>
+    <figure><img src="../assets/labels/LOL.svg" alt="LOL"></figure>
+    <figure><img src="../assets/labels/FCK.svg" alt="FCK"></figure>
+    <figure><img src="../assets/labels/JOY.svg" alt="JOY"></figure>
+    <figure><img src="../assets/labels/HOT.svg" alt="HOT"></figure>
+    <figure><img src="../assets/labels/FUN.svg" alt="FUN"></figure>
+    <figure><img src="../assets/labels/POP.svg" alt="POP"></figure>
+    <figure><img src="../assets/labels/GO.svg" alt="GO"></figure>
+    <figure><img src="../assets/labels/RUN.svg" alt="RUN"></figure>
+    <figure><img src="../assets/labels/BUY.svg" alt="BUY"></figure>
+    <figure><img src="../assets/labels/WIN.svg" alt="WIN"></figure>
+    <figure><img src="../assets/labels/NEW.svg" alt="NEW"></figure>
+    <figure><img src="../assets/labels/WEB.svg" alt="WEB"></figure>
+    <figure><img src="../assets/labels/ADS.svg" alt="ADS"></figure>
+    <figure><img src="../assets/labels/SOC.svg" alt="SOC"></figure>
+    <figure><img src="../assets/labels/TXT.svg" alt="TXT"></figure>
+    <figure><img src="../assets/labels/BOX.svg" alt="BOX"></figure>
+    <figure><img src="../assets/labels/TIP.svg" alt="TIP"></figure>
+    <figure><img src="../assets/labels/HOW.svg" alt="HOW"></figure>
+    <figure><img src="../assets/labels/WHY.svg" alt="WHY"></figure>
+    <figure><img src="../assets/labels/404.svg" alt="404"></figure>
+    <figure><img src="../assets/labels/CEO.svg" alt="CEO"></figure>
+    <figure><img src="../assets/labels/EGO.svg" alt="EGO"></figure>
+    <figure><img src="../assets/labels/THX.svg" alt="THX"></figure>
+    <figure><img src="../assets/labels/YES.svg" alt="YES"></figure>
+  </div>
+
+  <div class="row-eyebrow">Voice · korporát → (ant)</div>
+  <div class="voice-grid">
+    <div class="voice-card">
+      <div class="from">Kontaktujte nás.</div>
+      <div class="to">Pojďme se pobavit.</div>
+    </div>
+    <div class="voice-card">
+      <div class="from">Nabízíme strategické poradenství.</div>
+      <div class="to">Řekneme vám rovnou, co je špatně. A jak to napravit.</div>
+    </div>
+    <div class="voice-card">
+      <div class="from">Naším cílem je dlouhodobý růst.</div>
+      <div class="to">Dělat to, co funguje. Tečka.</div>
+    </div>
+    <div class="voice-card">
+      <div class="from">Inovativní řešení pro vaši značku.</div>
+      <div class="to">Uděláme značku, kterou si konečně zapamatují.</div>
+    </div>
+  </div>
+
+  <div class="row-eyebrow">Rules at a glance</div>
+  <div class="rules">
+    <div class="rule"><div class="num">01</div><div class="body"><strong>One label per block.</strong> More dilutes. Rotate it: −10°, 20° or 25°.</div></div>
+    <div class="rule"><div class="num">02</div><div class="body"><strong>( ) is brand. [ ] is placeholder.</strong> Never overlap inside one frame.</div></div>
+    <div class="rule"><div class="num">03</div><div class="body"><strong>Italics only on Inter.</strong> Aktiv Grotesk Ex never tilts.</div></div>
+    <div class="rule"><div class="num">04</div><div class="body"><strong>Green is signature, not background.</strong> No body copy in green.</div></div>
+    <div class="rule"><div class="num">05</div><div class="body"><strong>Vykání ven, tykání dovnitř.</strong> Inside one channel, never mix.</div></div>
+    <div class="rule"><div class="num">06</div><div class="body"><strong>Punchy line at end.</strong> Refrain, claim, question — never in the middle.</div></div>
+  </div>
+</body>
+</html>

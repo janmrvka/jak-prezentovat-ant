@@ -1,0 +1,249 @@
+/* ========================================================================
+   (ant) — DESIGN TOKENS
+   Single source of truth for color, typography, spacing, motion.
+   Anything you build for (ant) imports this file first.
+   ======================================================================== */
+
+/* ---------- FONTS (local — works offline, in PDFs, in artifacts) ---------- */
+/* Aktiv Grotesk Ex — display. Regular, Medium, SemiBold, Bold per manuál.   */
+/* On production web, swap to Adobe Fonts:                                    */
+/*   <link rel="stylesheet" href="https://use.typekit.net/zch7ids.css">      */
+@font-face {
+  font-family: "Aktiv Grotesk Ex";
+  src: url("fonts/AktivGroteskEx-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Aktiv Grotesk Ex";
+  src: url("fonts/AktivGroteskEx-Medium.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Aktiv Grotesk Ex";
+  src: url("fonts/AktivGroteskEx-SemiBold.otf") format("opentype");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Aktiv Grotesk Ex";
+  src: url("fonts/AktivGroteskEx-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* Inter — body. Light (default body), Regular (UI), Bold (strong / display).*/
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter_18pt-Light.ttf") format("truetype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter_18pt-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter_18pt-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  /* 28pt cut for display sizes (used on hero copy and large strong)         */
+  font-family: "Inter Display";
+  src: url("fonts/Inter_28pt-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* ====================================================================== */
+:root {
+  /* ---------- COLOR ---------- */
+  /* Primary — neon mint that signs the brand. Use for ink on black, fills,
+     CTAs, interactive states. NOT for body type on white (poor contrast).  */
+  --ant-green: #5BFFC4;
+
+  /* Mono — black is the workhorse, white is the canvas.                    */
+  --ant-black: #000000;
+  --ant-white: #FFFFFF;
+  --ant-ink:   #000000;     /* alias for body text                           */
+
+  /* Grays — UI scaffolding only. NEVER as placeholder fill.                 */
+  --ant-gray-light: #E7E8E9;
+  --ant-gray-dark:  #AEB1B7;
+
+  /* Dark surface (for inverted sections, footers, deep stages).            */
+  --ant-near-black: #191A1B;
+
+  /* Accents — pastel set used for placeholders, label rotation, accent
+     blocks. Always paired with black ink, never with each other as fg/bg.  */
+  --ant-peach:    #FFE4C1;  /* brown family per manuál                       */
+  --ant-lavender: #DAD4FF;  /* purple                                        */
+  --ant-yellow:   #FFFD92;  /* yellow                                        */
+  --ant-pink:     #FFE2EB;  /* pink                                          */
+  --ant-sky:      #D7EDFF;  /* blue                                          */
+
+  /* Semantic aliases */
+  --ant-bg:        var(--ant-white);
+  --ant-fg:        var(--ant-black);
+  --ant-accent:    var(--ant-green);
+  --ant-muted:     var(--ant-gray-dark);
+  --ant-rule:      var(--ant-gray-light);
+
+  /* ---------- TYPOGRAPHY ---------- */
+  --font-display: "Aktiv Grotesk Ex", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display-large: "Inter Display", "Inter", system-ui, sans-serif;
+
+  /* Display weights — italics are FORBIDDEN on Aktiv Ex.                   */
+  --w-h1: 700;     /* Bold — hero claims                                     */
+  --w-h2: 600;     /* SemiBold — section heads                               */
+  --w-h3: 500;     /* Medium — value blocks, eyebrows                        */
+  --w-h4: 400;     /* Regular — small heads                                  */
+
+  /* Body weights — italics ALLOWED on Inter                                */
+  --w-body:   300;  /* Light — default body per manuál                       */
+  --w-ui:     400;  /* Regular — UI controls                                 */
+  --w-strong: 700;  /* Bold — emphasis                                       */
+
+  /* Fluid scale — clamp from min (mobile) → ideal (vw) → max (desktop).
+     Hierarchy from 01_BRAND_VISUALS.md.                                    */
+  --fs-h1:    clamp(3rem,    9vw,   8.5rem);   /* 48 → 136                   */
+  --fs-h2:    clamp(2.25rem, 6vw,   5rem);     /* 36 → 80                    */
+  --fs-h3:    clamp(2rem,    4vw,   3.25rem);  /* 32 → 52                    */
+  --fs-h4:    clamp(1.5rem,  2.4vw, 2rem);     /* 24 → 32                    */
+  --fs-body:  clamp(1.05rem, 1.4vw, 1.35rem);  /* 17 → 22                    */
+  --fs-small: 0.9375rem;                       /* 15 — UI                    */
+  --fs-caption: 0.875rem;                      /* 14 — meta                  */
+  --fs-label: 0.8125rem;                       /* 13 — eyebrow caps          */
+
+  /* Line heights — display tight, body relaxed.                            */
+  --lh-display: 0.95;
+  --lh-head:    1.05;
+  --lh-body:    1.55;
+  --lh-ui:      1.4;
+
+  /* Letter-spacing                                                          */
+  --tr-display:  -0.02em;  /* tighter on big display                         */
+  --tr-head:    -0.01em;
+  --tr-eyebrow:  0.08em;   /* small caps                                     */
+  --tr-body:     0;
+
+  /* ---------- SPACING / LAYOUT ---------- */
+  --gap-x: clamp(1.5rem, 4vw, 4rem);
+  --container-default: min(100% - 2 * var(--gap-x), 1280px); /* reading      */
+  --container-wide:    min(100% - 2 * var(--gap-x), 1680px); /* showcase     */
+
+  /* Section vertical rhythm                                                 */
+  --pad-section: clamp(5rem, 10vw, 8rem);
+
+  /* 8pt-ish micro-spacing                                                   */
+  --s-1: 0.25rem;  /*  4px */
+  --s-2: 0.5rem;   /*  8px */
+  --s-3: 0.75rem;  /* 12px */
+  --s-4: 1rem;     /* 16px */
+  --s-5: 1.5rem;   /* 24px */
+  --s-6: 2rem;     /* 32px */
+  --s-7: 3rem;     /* 48px */
+  --s-8: 4rem;     /* 64px */
+  --s-9: 6rem;     /* 96px */
+
+  /* Radii — (ant) is mostly orthogonal. Buttons get a pill, cards a hair.   */
+  --radius-0:  0;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+
+  /* Borders                                                                 */
+  --bw: 1.5px;
+  --bw-strong: 2px;
+
+  /* Shadows — (ant) prefers flat. One subtle elevation when needed.         */
+  --shadow-card: 0 1px 0 rgba(0,0,0,0.04), 0 8px 24px -8px rgba(0,0,0,0.08);
+  --shadow-pop:  0 12px 40px -12px rgba(0,0,0,0.18);
+
+  /* ---------- MOTION ---------- */
+  --ease-standard: cubic-bezier(.2,.8,.2,1);
+  --ease-snappy:   cubic-bezier(.4,.0,.2,1);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+}
+
+/* ---------- BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+body {
+  margin: 0;
+  background: var(--ant-bg);
+  color: var(--ant-fg);
+  font-family: var(--font-body);
+  font-weight: var(--w-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-text-size-adjust: 100%;
+}
+
+::selection { background: var(--ant-green); color: var(--ant-black); }
+
+/* ---------- TYPE PRIMITIVES ---------- */
+.h-display, h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: var(--w-h1);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tr-display);
+  margin: 0;
+  text-wrap: balance;
+}
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: var(--w-h2);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-head);
+  letter-spacing: var(--tr-head);
+  margin: 0;
+  text-wrap: balance;
+}
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: var(--w-h3);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-head);
+  margin: 0;
+  text-wrap: balance;
+}
+h4, .h4 {
+  font-family: var(--font-display);
+  font-weight: var(--w-h4);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-head);
+  margin: 0;
+}
+p, .body { font-family: var(--font-body); font-weight: var(--w-body); font-size: var(--fs-body); line-height: var(--lh-body); margin: 0; text-wrap: pretty; max-width: 60ch; }
+strong, b { font-weight: var(--w-strong); }
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-label);
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+}
+.caption {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-caption);
+  color: var(--ant-muted);
+}
+
+/* ---------- BRAND PARENTHESIS ---------- */
+/* Use .paren on any token (ant), (WOW), (PROČ) ... Parens stay green for
+   emphasis on dark; black on light. Never decorative — they're brand.      */
+.paren { color: inherit; }
+.paren-em > .paren-mark { color: var(--ant-green); }
+
+/* ---------- LINKS ---------- */
+a { color: inherit; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 0.18em; }
+a:hover { color: var(--ant-black); background: var(--ant-green); text-decoration: none; padding: 0 .15em; }
+
+/* Inverted (dark) sections */
+.surface-dark { background: var(--ant-black); color: var(--ant-white); }
+.surface-dark a:hover { color: var(--ant-black); background: var(--ant-green); }
+.surface-green { background: var(--ant-green); color: var(--ant-black); }
+.surface-near-black { background: var(--ant-near-black); color: var(--ant-white); }

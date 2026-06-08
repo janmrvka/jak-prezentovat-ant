@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>(ant) — Landing page template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../components.css">
+  <style>
+    section { padding-block: var(--pad-section); }
+    .container { width: var(--container-default); margin-inline: auto; }
+    .container-wide { width: var(--container-wide); margin-inline: auto; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px); background: rgba(255,255,255,.84); border-bottom: 1px solid var(--ant-rule); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; width: var(--container-wide); margin-inline: auto; }
+    .nav-logo { height: 28px; }
+    .nav-links { display: flex; gap: 28px; align-items: center; font-family: var(--font-body); font-weight: 500; }
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { background: var(--ant-green); padding: 0 .25em; }
+
+    /* HERO */
+    .hero { padding-block: clamp(4rem, 8vw, 7rem) 0; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .hero-eyebrow .lbl { height: 32px; }
+    .hero-eyebrow .lbl img { height: 100%; display: block; }
+    .hero h1 .green { color: var(--ant-green); -webkit-text-stroke: 1px var(--ant-black); }
+    .hero-actions { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+    .hero-visual {
+      margin-top: 64px;
+      position: relative;
+    }
+    .hero-visual .placeholder { border-radius: 0; }
+    .hero-floating-label {
+      position: absolute; top: -28px; right: 60px;
+      height: 80px;
+    }
+    .hero-floating-label img { height: 100%; display: block; }
+
+    /* PAIN */
+    .pain { background: var(--ant-black); color: #fff; }
+    .pain h2 .strike { text-decoration: line-through; opacity: .55; }
+    .pain h2 .green { color: var(--ant-green); }
+    .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+    .pain-card {
+      background: var(--ant-near-black);
+      border: 1.5px solid rgba(255,255,255,.14);
+      padding: 32px;
+      border-radius: 12px;
+      display: flex; flex-direction: column; gap: 16px;
+      min-height: 260px;
+    }
+    .pain-card .num { font-family: var(--font-display); font-weight: 700; font-size: 56px; line-height: 1; color: var(--ant-green); }
+    .pain-card .h { font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.05; }
+    .pain-card .b { font-size: 16px; color: #C9CACD; max-width: none; }
+
+    /* SOLUTION */
+    .solution-head { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; }
+    .solution-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; margin-top: 64px; align-items: stretch; }
+    .solution-grid > * { border-radius: 12px; }
+    .solution-feature {
+      background: var(--ant-green);
+      padding: 56px;
+      display: grid;
+      align-content: space-between;
+      gap: 48px;
+      min-height: 460px;
+    }
+    .solution-feature .h { font-family: var(--font-display); font-weight: 700; font-size: 56px; line-height: .95; letter-spacing: -.02em; }
+    .solution-feature .meta { display: flex; gap: 16px; font-family: ui-monospace, monospace; font-size: 13px; }
+    .solution-side { display: grid; grid-template-rows: 1fr 1fr; gap: 32px; }
+    .solution-side .card-mini {
+      background: #fff; border: 1.5px solid var(--ant-black); padding: 36px;
+      border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
+    }
+    .solution-side .card-mini .h { font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 1.05; }
+    .solution-side .card-mini .ix { display: flex; gap: 8px; align-items: center; font-family: ui-monospace, monospace; font-size: 12px; }
+    .solution-side .card-mini .ix::before { content: ""; width: 8px; height: 8px; background: var(--ant-black); border-radius: 999px; display: inline-block; }
+
+    /* PROOF */
+    .proof { background: var(--ant-gray-light); }
+    .proof-numbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 56px; }
+    .num-card { padding: 32px 0; border-top: 2px solid var(--ant-black); }
+    .num-card .n { font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 6vw, 5.5rem); line-height: .9; letter-spacing: -.02em; }
+    .num-card .l { font-family: var(--font-body); font-weight: 400; font-size: 14px; margin-top: 12px; max-width: 24ch; }
+    .logo-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 64px; }
+    .logo-row .placeholder { width: 200px; height: 88px; min-height: 0; min-width: 0; }
+
+    /* PROCESS */
+    .process-rows { display: grid; gap: 0; margin-top: 56px; }
+    .process-row {
+      display: grid;
+      grid-template-columns: 100px 280px 1fr 80px;
+      gap: 32px;
+      align-items: center;
+      padding: 28px 0;
+      border-top: 1.5px solid var(--ant-black);
+    }
+    .process-row:last-child { border-bottom: 1.5px solid var(--ant-black); }
+    .process-row .step { font-family: ui-monospace, monospace; font-size: 14px; }
+    .process-row .ttl { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.05; }
+    .process-row .ds { font-family: var(--font-body); font-weight: 300; font-size: 17px; max-width: 60ch; }
+    .process-row .when { font-family: ui-monospace, monospace; font-size: 13px; text-align: right; color: var(--ant-gray-dark); }
+
+    /* CTA FINAL */
+    .cta-final {
+      background: var(--ant-black); color: #fff; border-radius: 24px;
+      padding: clamp(3rem, 6vw, 5rem); margin: 0 auto;
+      width: var(--container-wide);
+      position: relative; overflow: hidden;
+    }
+    .cta-final h2 { font-size: clamp(2.5rem, 7vw, 6rem); letter-spacing: -.02em; }
+    .cta-final .green { color: var(--ant-green); }
+    .cta-final .lead { font-family: var(--font-body); font-weight: 300; font-size: 18px; max-width: 56ch; margin-top: 24px; opacity: .85; }
+    .cta-final .actions { display: flex; gap: 12px; margin-top: 48px; flex-wrap: wrap; }
+    .cta-floating-lbl { position: absolute; right: 48px; bottom: 48px; height: 96px; }
+
+    /* FOOTER */
+    footer { padding: 64px 0 48px; }
+    .footer-inner { width: var(--container-wide); margin-inline: auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+    footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-family: var(--font-body); font-size: 15px; }
+    footer h5 { font-family: var(--font-body); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: 12px; margin-bottom: 16px; }
+    .footer-bot { width: var(--container-wide); margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--ant-rule); display: flex; justify-content: space-between; font-family: ui-monospace, monospace; font-size: 12px; color: var(--ant-gray-dark);}
+
+    @media (max-width: 960px) {
+      .pain-grid, .solution-head, .solution-grid, .proof-numbers { grid-template-columns: 1fr; }
+      .process-row { grid-template-columns: 60px 1fr; }
+      .process-row .ds, .process-row .when { grid-column: 1 / -1; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="ant-logo" aria-label="(ant)" style="height: 28px;">
+        <img src="../assets/logo/ant-logo-black.svg" alt="(ant)" style="height: 100%;">
+      </a>
+      <div class="nav-links">
+        <a href="#">Práce</a>
+        <a href="#">Služby</a>
+        <a href="#">O nás</a>
+        <a href="#">Kariéra</a>
+        <a class="btn btn--primary btn--sm" href="#contact">Pojďme se pobavit</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 01 HERO -->
+  <section class="hero">
+    <div class="container-wide">
+      <div class="hero-eyebrow">
+        <span class="eyebrow">(ant) crafted for (WOW)</span>
+        <span class="lbl"><img src="../assets/labels/NEW.svg" alt="(NEW)"></span>
+      </div>
+      <h1>
+        Marketing nemá být šeď,<br>
+        co nikoho nebaví.<br>
+        Má bavit, provokovat<br>
+        a přinášet <span class="green">(WOW)</span>.
+      </h1>
+      <div class="hero-actions">
+        <a class="btn btn--primary btn--lg" href="#contact">Pojďme se pobavit <span class="arrow">→</span></a>
+        <a class="btn btn--ghost btn--lg" href="#work">Naše práce</a>
+      </div>
+      <div class="hero-visual">
+        <span class="hero-floating-label">
+          <img src="../assets/labels/WOW.svg" style="transform: rotate(-10deg); transform-origin: center;" alt="(WOW)">
+        </span>
+        <figure class="placeholder placeholder--hero placeholder--lavender">
+          <span class="placeholder__caption">[ hero scéna ]</span>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 PAIN -->
+  <section class="pain surface-dark">
+    <div class="container-wide">
+      <span class="eyebrow" style="color: var(--ant-green);">Co Vás pálí</span>
+      <h2 style="margin-top: 16px; max-width: 22ch;">
+        Marketing, co <span class="strike">vyplňuje slidy</span><br>
+        a <span class="green">nepřináší výsledek</span>.
+      </h2>
+
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="num">01</div>
+          <div class="h">Agentura, co odklikává úkoly.</div>
+          <p class="b">Brief vychází zevnitř. Kreativa z příručky. Výsledek se neměří, jen reportuje.</p>
+        </div>
+        <div class="pain-card">
+          <div class="num">02</div>
+          <div class="h">Brand, který si nikdo nepamatuje.</div>
+          <p class="b">Vypadá jako konkurence. Mluví jako konkurence. Bojí se vlastní pozice.</p>
+        </div>
+        <div class="pain-card">
+          <div class="num">03</div>
+          <div class="h">Web, co nedoručí číslo.</div>
+          <p class="b">Hezké animace, žádný funnel. Šedé tlačítko Submit a pak ticho.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 SOLUTION -->
+  <section>
+    <div class="container-wide">
+      <div class="solution-head">
+        <div>
+          <span class="eyebrow">Jak to děláme</span>
+          <h2 style="margin-top: 16px;">Crafted by <em style="font-style: normal; background: var(--ant-green); padding: 0 .15em;">(ant)</em>, ne z příručky.</h2>
+        </div>
+        <p style="font-size: 18px;">
+          Strategie, která stojí na datech. Kreativa, která stojí za pozornost.<br>
+          <strong>Spolu, ne v sériích.</strong> Žádný hand-off, žádné svádění viny mezi týmy.
+        </p>
+      </div>
+
+      <div class="solution-grid">
+        <div class="solution-feature">
+          <div>
+            <span class="eyebrow">Náš (PROČ)</span>
+            <div class="h" style="margin-top: 12px;">Tvořit (WOW),<br>které funguje.</div>
+          </div>
+          <div class="meta">
+            <span>+ strategie</span>
+            <span>+ brand</span>
+            <span>+ web</span>
+            <span>+ growth</span>
+          </div>
+        </div>
+        <div class="solution-side">
+          <div class="card-mini">
+            <div>
+              <span class="ix">argumenty + emoce</span>
+              <div class="h" style="margin-top: 12px;">Říkáme věci na rovinu.</div>
+            </div>
+            <p style="font-size: 15px; color: var(--ant-gray-dark);">Pojmenujeme problém. Navrhneme řešení. Žádné <em>"možná by se dalo zvážit"</em>.</p>
+          </div>
+          <div class="card-mini">
+            <div>
+              <span class="ix">disrupce s daty</span>
+              <div class="h" style="margin-top: 12px;">Riziko, ne hazard.</div>
+            </div>
+            <p style="font-size: 15px; color: var(--ant-gray-dark);">Odvážný krok s metrikou. Tam, kde stereotyp stojí výsledku v cestě.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 SOCIAL PROOF -->
+  <section class="proof">
+    <div class="container-wide">
+      <span class="eyebrow">Výsledky, ne dojem</span>
+      <h2 style="margin-top: 16px; max-width: 18ch;">Čísla, která se ukazují boardu.</h2>
+
+      <div class="proof-numbers">
+        <div class="num-card">
+          <div class="n">+312<small style="font-size:.4em;">%</small></div>
+          <div class="l">akviziční růst za 6 měsíců (klient z fintechu)</div>
+        </div>
+        <div class="num-card">
+          <div class="n">−47<small style="font-size:.4em;">%</small></div>
+          <div class="l">CAC po redesignu funnelu (e-commerce)</div>
+        </div>
+        <div class="num-card">
+          <div class="n">3,4×</div>
+          <div class="l">lift v dokončení onboardingu (SaaS)</div>
+        </div>
+        <div class="num-card">
+          <div class="n">17 dní</div>
+          <div class="l">průměr od kick-offu po první deploy</div>
+        </div>
+      </div>
+
+      <div class="logo-row">
+        <figure class="placeholder placeholder--peach"><span class="placeholder__caption">[ logo klienta ]</span></figure>
+        <figure class="placeholder placeholder--sky"><span class="placeholder__caption">[ logo klienta ]</span></figure>
+        <figure class="placeholder placeholder--yellow"><span class="placeholder__caption">[ logo klienta ]</span></figure>
+        <figure class="placeholder placeholder--pink"><span class="placeholder__caption">[ logo klienta ]</span></figure>
+        <figure class="placeholder placeholder--lavender"><span class="placeholder__caption">[ logo klienta ]</span></figure>
+        <figure class="placeholder placeholder--peach"><span class="placeholder__caption">[ logo klienta ]</span></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 PROCESS -->
+  <section>
+    <div class="container">
+      <div style="display:flex; justify-content: space-between; align-items: end; gap: 48px;">
+        <div>
+          <span class="eyebrow">Jak to běží</span>
+          <h2 style="margin-top: 16px;">Šest kroků. Žádný teatr.</h2>
+        </div>
+        <span class="label-svg label-rot-r" style="height: 56px;"><img src="../assets/labels/HOW.svg" alt="(HOW)"></span>
+      </div>
+
+      <div class="process-rows">
+        <div class="process-row">
+          <span class="step">01 / Discovery</span>
+          <span class="ttl">Posloucháme.</span>
+          <span class="ds">Zjišťujeme cíl, omezení a metriku úspěchu. Domněnky vyhazujeme.</span>
+          <span class="when">~ 1 týden</span>
+        </div>
+        <div class="process-row">
+          <span class="step">02 / Strategie</span>
+          <span class="ttl">Říkáme proč.</span>
+          <span class="ds">Pozice, audience, claim, kanály. Co děláme, co neděláme — a proč.</span>
+          <span class="when">~ 2 týdny</span>
+        </div>
+        <div class="process-row">
+          <span class="step">03 / Koncept</span>
+          <span class="ttl">Lámeme očekávání.</span>
+          <span class="ds">Kreativa, která sedne k cíli. Předkládáme jeden směr, ne tři kompromisy.</span>
+          <span class="when">~ 2 týdny</span>
+        </div>
+        <div class="process-row">
+          <span class="step">04 / Design + dev</span>
+          <span class="ttl">Stavíme.</span>
+          <span class="ds">Sprinty po týdnu. Demo na konci každého. Žádné překvapení v Q3.</span>
+          <span class="when">~ 4–8 týdnů</span>
+        </div>
+        <div class="process-row">
+          <span class="step">05 / Launch</span>
+          <span class="ttl">Pouštíme.</span>
+          <span class="ds">Smoke test, soft launch, plný launch. Po každé fázi rollback plán.</span>
+          <span class="when">1–2 týdny</span>
+        </div>
+        <div class="process-row">
+          <span class="step">06 / Growth</span>
+          <span class="ttl">Iterujeme.</span>
+          <span class="ds">Co se měří, to se zlepšuje. Měsíční review proti metrice z bodu 01.</span>
+          <span class="when">průběžně</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 FINAL CTA -->
+  <section id="contact">
+    <div class="cta-final">
+      <span class="eyebrow" style="color: var(--ant-green);">Závěr</span>
+      <h2 style="margin-top: 16px;">Pojďme se <span class="green">pobavit</span>.</h2>
+      <p class="lead">Nemáme rádi briefy z mailu. Posaďte se s námi na hodinu — řekneme rovnou, jestli to dává smysl, a co s tím.</p>
+      <div class="actions">
+        <a class="btn btn--primary btn--lg" href="mailto:hello@antstudio.cz">hello@antstudio.cz <span class="arrow">→</span></a>
+        <a class="btn btn--invert btn--lg" href="#">Zarezervovat hovor</a>
+      </div>
+      <span class="cta-floating-lbl">
+        <img src="../assets/labels/YES.svg" style="transform: rotate(20deg); transform-origin: center; filter: invert(1);" alt="(YES)">
+      </span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a class="ant-logo" href="#" style="height: 36px;"><img src="../assets/logo/ant-logo-black.svg" alt="(ant)" style="height: 100%;"></a>
+        <p style="margin-top: 16px; font-size: 15px; max-width: 32ch;">Full-service digitální agentura. Outsider, co všechny předběhl — protože se nikam nezapadl.</p>
+      </div>
+      <div>
+        <h5>Práce</h5>
+        <ul><li><a href="#">Case studies</a></li><li><a href="#">Klienti</a></li><li><a href="#">Recenze</a></li></ul>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <ul><li><a href="#">O nás</a></li><li><a href="#">Tým</a></li><li><a href="#">Kariéra</a></li></ul>
+      </div>
+      <div>
+        <h5>Kontakt</h5>
+        <ul><li><a href="#">hello@antstudio.cz</a></li><li><a href="#">+420 ___ ___ ___</a></li><li><a href="#">Praha · Brno</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© (ant) studio · {YYYY}</span>
+      <span>Crafted for (WOW)</span>
+    </div>
+  </footer>
+
+</body>
+</html>
