@@ -181,15 +181,16 @@ export default function HeroSlide({ slide, content, config = {} }) {
         {!content.ctas && content.cta && (
           <FadeIn delay={content.image ? 1.4 : 1.0}>
             <motion.div
-              className="mt-8 md:mt-10 lg:mt-12"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="mt-12 md:mt-16"
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
               <a
                 href={content.cta.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-block px-8 py-4 text-lg md:text-xl lg:text-2xl font-bold ${accentColor} bg-black/10 hover:bg-black/20 rounded-full transition-colors border-2 ${accentColor.replace('text-', 'border-')}`}
+                className="inline-block px-16 py-8 text-3xl md:text-4xl lg:text-5xl font-bold bg-ant-green text-black rounded-2xl shadow-2xl hover:shadow-ant-green/40 transition-all duration-300 underline underline-offset-4 decoration-2"
               >
                 {content.cta.text}
               </a>

@@ -89,20 +89,6 @@ export const SLIDES = [
     "notes": ""
   },
   {
-    "id": "video-prezentace",
-    "template": "VideoSlide",
-    "content": {
-      "videoId": "VQKMoT-6XSg",
-      "startAt": 80
-    },
-    "config": {
-      "backgroundColor": "bg-black",
-      "layout": "contain",
-      "muted": false
-    },
-    "notes": "Video — spustí/zastaví se na klik"
-  },
-  {
     "id": "prezentace-ktere-prodavaji",
     "template": "ManifestoSlide",
     "content": {
@@ -121,6 +107,20 @@ export const SLIDES = [
     "notes": ""
   },
   {
+    "id": "video-prezentace",
+    "template": "VideoSlide",
+    "content": {
+      "videoId": "VQKMoT-6XSg",
+      "startAt": 80
+    },
+    "config": {
+      "backgroundColor": "bg-black",
+      "layout": "contain",
+      "muted": false
+    },
+    "notes": "Video — spustí/zastaví se na klik"
+  },
+  {
     "id": "priprava-divider",
     "template": "HeroSlide",
     "content": {
@@ -133,10 +133,9 @@ export const SLIDES = [
       }
     },
     "config": {
-      "backgroundColor": "bg-black",
-      "textColor": "text-white",
-      "accentColor": "text-ant-green",
-      "backgroundImage": "/images/priprava.png",
+      "backgroundColor": "bg-white",
+      "textColor": "text-black",
+      "accentColor": "text-black",
       "backgroundVariant": "none"
     },
     "notes": "Sekce: Příprava"
@@ -164,8 +163,8 @@ export const SLIDES = [
     "id": "hodnota-divider",
     "template": "HeroSlide",
     "content": {
-      "title": "Hodnota.",
-      "subtitle": "Výsledky",
+      "title": "Přidaná hodnota.",
+      "subtitle": "",
       "sticker": {
         "image": "/styly/assets/labels/WIN.svg",
         "position": "bottom-right",
@@ -181,28 +180,12 @@ export const SLIDES = [
     "notes": "Sekce: Hodnota / Výsledky"
   },
   {
-    "id": "pridana-hodnota",
-    "template": "ManifestoSlide",
-    "content": {
-      "statement": "Přidaná\nhodnota.",
-      "sticker": {
-        "image": "/styly/assets/labels/HOT.svg",
-        "position": "top-right",
-        "rotation": 25
-      }
-    },
-    "config": {
-      "backgroundColor": "bg-black",
-      "textColor": "text-white",
-      "backgroundVariant": "none"
-    },
-    "notes": ""
-  },
-  {
     "id": "citelnost",
     "template": "ManifestoSlide",
     "content": {
       "statement": "Čitelnost.",
+      "subtitle": "Je důležitá.",
+      "accentDot": true,
       "sticker": {
         "image": "/styly/assets/labels/HOW.svg",
         "position": "top-right",
@@ -212,7 +195,8 @@ export const SLIDES = [
     "config": {
       "backgroundColor": "bg-ant-lavender",
       "textColor": "text-black",
-      "backgroundVariant": "none"
+      "backgroundVariant": "none",
+      "clickShrink": true
     },
     "notes": ""
   },
@@ -220,8 +204,12 @@ export const SLIDES = [
     "id": "odkaz-divider",
     "template": "HeroSlide",
     "content": {
-      "title": "Odkaz.",
+      "title": "",
       "subtitle": "",
+      "cta": {
+        "text": "Přečti desatero →",
+        "link": "https://docs.google.com/document/d/1-mgwF2uXtyXZ1Pgy5FhccQ30bdDbze9XxuO6T7FvAvw/edit?tab=t.0"
+      },
       "sticker": {
         "image": "/styly/assets/labels/NEW.svg",
         "position": "bottom-right",
@@ -241,7 +229,7 @@ export const SLIDES = [
     "template": "ContactWowSlide",
     "content": {
       "title": "Nové, lepší, hned.",
-      "subtitle": "Tým (ant)",
+      "subtitle": "",
       "sticker": {
         "image": "/styly/assets/labels/GO.svg",
         "position": "top-right",
