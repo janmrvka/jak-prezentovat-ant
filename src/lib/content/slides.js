@@ -54,12 +54,7 @@ export const SLIDES = [
     "id": "stalo-se",
     "template": "ManifestoSlide",
     "content": {
-      "statement": "Stalo se.",
-      "sticker": {
-        "image": "/styly/assets/labels/OMG.svg",
-        "position": "top-right",
-        "rotation": -10
-      }
+      "statement": "Stalo se."
     },
     "config": {
       "backgroundColor": "bg-ant-brown",
