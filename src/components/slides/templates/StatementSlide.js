@@ -28,46 +28,7 @@ export default function StatementSlide({ slide, content, config = {} }) {
     <div
       className={`min-h-screen flex items-center justify-center ${backgroundColor} px-4 md:px-8 lg:px-16 py-8 md:py-12 lg:py-16 pb-24 relative overflow-hidden`}
     >
-      {/* Animated geometric shapes in background */}
-      <motion.div
-        className="absolute top-20 left-20 w-32 h-32 border-4 rounded-lg"
-        style={{ borderColor: 'currentColor' }}
-        className={`${textColor} opacity-10`}
-        animate={{
-          rotate: [0, 180, 360],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
-
-      <motion.div
-        className="absolute bottom-20 right-20 w-48 h-48 rounded-full"
-        style={{ background: `radial-gradient(circle, currentColor 0%, transparent 70%)` }}
-        className={`${textColor} opacity-10`}
-        animate={{
-          scale: [1, 1.3, 1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-
       <div className="max-w-5xl w-full relative z-10">
-        {/* Large quote mark - hide on mobile */}
-        <motion.div
-          className={`hidden md:block text-[120px] md:text-[150px] lg:text-[200px] ${textColor} opacity-5 absolute -top-12 md:-top-16 lg:-top-20 -left-6 md:-left-10 lg:-left-12 leading-none font-serif`}
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 0.05, scale: 1 }}
-          transition={{ delay: 0.3, duration: 1 }}
-        >
-          "
-        </motion.div>
 
         <SlideIn direction="up" delay={0.2}>
           <EditableText

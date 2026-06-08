@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import FadeIn from '@/components/animations/FadeIn';
 import TextReveal from '@/components/animations/TextReveal';
 import EditableText from '@/components/edit/EditableText';
@@ -26,22 +25,6 @@ export default function CheckerSlide({ slide, content, config = {} }) {
 
   return (
     <div className={`min-h-screen flex items-center justify-center ${backgroundColor} px-4 md:px-8 lg:px-16 py-6 md:py-8 lg:py-10 pb-16 relative overflow-hidden`}>
-      {/* Subtle background accent */}
-      <motion.div
-        className={`absolute right-1/4 top-1/4 w-64 h-64 rounded-full opacity-5`}
-        style={{
-          background: `radial-gradient(circle, ${isDark ? '#5bffc4' : '#000'} 0%, transparent 70%)`,
-        }}
-        animate={{
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
-
       <div className="text-center max-w-5xl w-full relative z-10">
         {/* Title */}
         {title && (
@@ -56,11 +39,6 @@ export default function CheckerSlide({ slide, content, config = {} }) {
               {title}
             </TextReveal>
           </EditableText>
-        )}
-
-        {/* Accent line below title */}
-        {accentLine && (
-          <div className={`w-16 md:w-24 lg:w-32 h-0.5 md:h-1 ${isDark ? 'bg-ant-green' : 'bg-black'} mx-auto mt-4 mb-6 md:mb-8 lg:mb-10 rounded-full`} />
         )}
 
         {/* Subtitle */}

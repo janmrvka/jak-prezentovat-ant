@@ -51,12 +51,11 @@ export default function HeroSlide({ slide, content, config = {} }) {
     >
       {/* Background image */}
       {backgroundImage && (
-        <div className="absolute inset-0 z-0 flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
           <img
             src={backgroundImage}
             alt="Background"
-            className="w-full h-full object-cover opacity-100"
-            style={{ transform: `scale(${backgroundImageScale})` }}
+            className="w-full h-full object-cover object-center"
             loading="eager"
           />
         </div>
@@ -64,7 +63,7 @@ export default function HeroSlide({ slide, content, config = {} }) {
 
       {/* Semi-transparent overlay over entire slide */}
       {backgroundImage && (
-        <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-[1]" />
+        <div className="absolute inset-0 bg-black/60 z-[1]" />
       )}
 
       {/* Animated background gradient */}

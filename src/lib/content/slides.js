@@ -74,7 +74,11 @@ export const SLIDES = [
     "content": {
       "title": "Jak prezentovat?",
       "subtitle": "",
-      "image": "/logo/ant-logo-white.svg"
+      "sticker": {
+        "image": "/styly/assets/labels/HOW.svg",
+        "position": "top-right",
+        "rotation": -10
+      }
     },
     "config": {
       "backgroundColor": "bg-black",
@@ -118,6 +122,7 @@ export const SLIDES = [
       "backgroundColor": "bg-black",
       "textColor": "text-white",
       "accentColor": "text-ant-green",
+      "backgroundImage": "/images/priprava.png",
       "backgroundVariant": "none"
     },
     "notes": "Sekce: Příprava"
@@ -126,7 +131,8 @@ export const SLIDES = [
     "id": "jednodusse-a-jasne",
     "template": "ManifestoSlide",
     "content": {
-      "statement": "Jednoduše\na jasně.",
+      "statement": "1 slide\n=\n1 myšlenka.",
+      "accentDot": true,
       "sticker": {
         "image": "/styly/assets/labels/YES.svg",
         "position": "top-right",
@@ -134,7 +140,7 @@ export const SLIDES = [
       }
     },
     "config": {
-      "backgroundColor": "bg-ant-green",
+      "backgroundColor": "bg-white",
       "textColor": "text-black",
       "backgroundVariant": "none"
     },
