@@ -202,8 +202,9 @@ export const SLIDES = [
       "title": "",
       "subtitle": "",
       "rotatingTexts": [
+        "Začněte\ns \"Proč\".",
         "Příprava.",
-        "1 myšlenka = 1 slide.",
+        "1 myšlenka\n= 1 slide.",
         "Přidaná hodnota.",
         "Čitelnost."
       ],

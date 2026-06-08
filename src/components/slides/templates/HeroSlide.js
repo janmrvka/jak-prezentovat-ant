@@ -51,7 +51,7 @@ export default function HeroSlide({ slide, content, config = {} }) {
         setRotatingIndex(i => (i + 1) % rotatingTexts.length);
         setVisible(true);
       }, 300);
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [rotatingTexts]);
 
