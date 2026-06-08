@@ -3,7 +3,7 @@ import { EditModeProvider } from '@/contexts/EditModeContext';
 import EditModeIndicator from '@/components/edit/EditModeIndicator';
 
 export const metadata = {
-  title: 'Jak prezentovat ANT',
+  title: 'Jak (ant) prezentuje',
   description: 'Interní prezentace agentury (ant)',
   robots: {
     index: false,
