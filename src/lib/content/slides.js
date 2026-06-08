@@ -56,7 +56,7 @@ export const SLIDES = [
     "content": {
       "statement": "Stalo se.",
       "sticker": {
-        "image": "/styly/assets/labels/WTF.svg",
+        "image": "/styly/assets/labels/OMG.svg",
         "position": "top-right",
         "rotation": -10
       }
