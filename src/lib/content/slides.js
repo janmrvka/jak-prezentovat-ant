@@ -201,6 +201,12 @@ export const SLIDES = [
     "content": {
       "title": "",
       "subtitle": "",
+      "rotatingTexts": [
+        "Příprava.",
+        "1 myšlenka = 1 slide.",
+        "Přidaná hodnota.",
+        "Čitelnost."
+      ],
       "cta": {
         "text": "Přečti desatero →",
         "link": "https://docs.google.com/document/d/1-mgwF2uXtyXZ1Pgy5FhccQ30bdDbze9XxuO6T7FvAvw/edit?tab=t.0"

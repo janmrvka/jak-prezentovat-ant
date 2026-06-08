@@ -29,7 +29,6 @@ export default function HeroSlide({ slide, content, config = {} }) {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      // Calculate position relative to center, normalized to range
       const x = (e.clientX - window.innerWidth / 2) / 50;
       const y = (e.clientY - window.innerHeight / 2) / 50;
       setMousePosition({ x, y });
@@ -38,6 +37,23 @@ export default function HeroSlide({ slide, content, config = {} }) {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  // Rotating texts
+  const rotatingTexts = content.rotatingTexts;
+  const [rotatingIndex, setRotatingIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    if (!rotatingTexts?.length) return;
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setRotatingIndex(i => (i + 1) % rotatingTexts.length);
+        setVisible(true);
+      }, 300);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [rotatingTexts]);
 
   // Check if backgroundColor is a hex color or Tailwind class
   const isCustomColor = backgroundColor?.startsWith('#');
@@ -70,7 +86,18 @@ export default function HeroSlide({ slide, content, config = {} }) {
       <AnimatedBackground variant={backgroundVariant} />
 
       <div className="text-center max-w-6xl w-full relative z-10">
-        {content.title && (
+        {rotatingTexts?.length > 0 ? (
+          <div className="h-[160px] md:h-[220px] lg:h-[280px] flex items-center justify-center mb-4 md:mb-6 lg:mb-8">
+            <motion.h1
+              key={rotatingIndex}
+              animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className={`text-5xl md:text-7xl lg:text-hero font-bold ${textColor} leading-[0.9] lg:leading-[0.85] whitespace-pre-line`}
+            >
+              {rotatingTexts[rotatingIndex]}
+            </motion.h1>
+          </div>
+        ) : content.title && (
             <motion.div
               style={{
                 x: mousePosition.x,
