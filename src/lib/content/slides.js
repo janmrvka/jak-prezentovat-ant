@@ -89,6 +89,20 @@ export const SLIDES = [
     "notes": ""
   },
   {
+    "id": "video-prezentace",
+    "template": "VideoSlide",
+    "content": {
+      "videoId": "VQKMoT-6XSg",
+      "startAt": 80
+    },
+    "config": {
+      "backgroundColor": "bg-black",
+      "layout": "contain",
+      "muted": false
+    },
+    "notes": "Video — spustí/zastaví se na klik"
+  },
+  {
     "id": "prezentace-ktere-prodavaji",
     "template": "ManifestoSlide",
     "content": {

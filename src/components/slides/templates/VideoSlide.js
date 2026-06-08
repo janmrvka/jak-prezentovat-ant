@@ -30,7 +30,7 @@ export default function VideoSlide({ content, config = {} }) {
     videoFit = 'height',
   } = config;
 
-  const { videoId, video, title, subtitle, description } = content;
+  const { videoId, video, title, subtitle, description, startAt } = content;
 
   const videoRef = useRef(null);
   const [paused, setPaused] = useState(true);
@@ -55,7 +55,7 @@ export default function VideoSlide({ content, config = {} }) {
   // YouTube embed URL - with or without sound based on config
   const muted = config.muted !== false; // default muted=true unless explicitly set to false
   const embedUrl = videoId
-    ? `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=${muted ? 1 : 0}&loop=1&playlist=${videoId}&controls=0&modestbranding=1&rel=0&showinfo=0&playsinline=1`
+    ? `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=${muted ? 1 : 0}&loop=1&playlist=${videoId}&controls=0&modestbranding=1&rel=0&showinfo=0&playsinline=1${startAt ? `&start=${startAt}` : ''}`
     : null;
 
   // Contain layout - video fits inside without cropping, centered with black bars
@@ -153,13 +153,12 @@ export default function VideoSlide({ content, config = {} }) {
               style={{ maxWidth: '177.78vh', maxHeight: '56.25vw' }}
             />
             {/* Play overlay */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-black/30">
+            <div className="absolute inset-0 flex items-center justify-center bg-black/30">
               <div className="w-24 h-24 rounded-full bg-black/60 border-2 border-white/60 flex items-center justify-center hover:bg-black/80 transition-colors">
                 <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
-              <p className="text-white/80 text-lg">Kliknutím spustíte video se zvukem</p>
             </div>
           </motion.div>
         )}
