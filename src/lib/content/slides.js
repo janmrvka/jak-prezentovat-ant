@@ -208,10 +208,16 @@ export const SLIDES = [
         "Přidaná hodnota.",
         "Čitelnost."
       ],
-      "cta": {
-        "text": "Přečti desatero →",
-        "link": "https://docs.google.com/document/d/1-mgwF2uXtyXZ1Pgy5FhccQ30bdDbze9XxuO6T7FvAvw/edit?tab=t.0"
-      },
+      "ctas": [
+        {
+          "text": "Přečti desatero →",
+          "link": "https://docs.google.com/document/d/1-mgwF2uXtyXZ1Pgy5FhccQ30bdDbze9XxuO6T7FvAvw/edit?tab=t.0"
+        },
+        {
+          "text": "9 lekcí Steva Jobse →",
+          "link": "https://www.gong.io/blog/steve-jobs-iphone-keynote"
+        }
+      ],
       "sticker": {
         "image": "/styly/assets/labels/NEW.svg",
         "position": "bottom-right",
