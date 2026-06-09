@@ -71,7 +71,7 @@ export const SLIDES = [
       "subtitle": "",
       "sticker": {
         "image": "/styly/assets/labels/HOW.svg",
-        "position": "top-right",
+        "position": "bottom-right",
         "rotation": -10
       }
     },
@@ -90,7 +90,7 @@ export const SLIDES = [
       "statement": "Prezentace,\nkteré prodávají.",
       "sticker": {
         "image": "/styly/assets/labels/WOW.svg",
-        "position": "top-right",
+        "position": "bottom-right",
         "rotation": 20
       }
     },
@@ -143,7 +143,7 @@ export const SLIDES = [
       "accentDot": true,
       "sticker": {
         "image": "/styly/assets/labels/YES.svg",
-        "position": "top-right",
+        "position": "bottom-right",
         "rotation": -10
       }
     },
@@ -183,7 +183,7 @@ export const SLIDES = [
       "accentDot": true,
       "sticker": {
         "image": "/styly/assets/labels/HOW.svg",
-        "position": "top-right",
+        "position": "bottom-right",
         "rotation": -10
       }
     },
@@ -234,7 +234,7 @@ export const SLIDES = [
       "subtitle": "",
       "sticker": {
         "image": "/styly/assets/labels/GO.svg",
-        "position": "top-right",
+        "position": "bottom-right",
         "rotation": 20,
         "size": "lg"
       }

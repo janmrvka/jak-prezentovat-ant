@@ -130,6 +130,9 @@ export default function PresentationContainer() {
     ? agency.logo.dark
     : agency.logo.light;
 
+  // Slide 4+ = index 3+, kromě slidu 6 = index 5 (video)
+  const showTopBar = currentSlide >= 3 && currentSlide !== 5;
+
   return (
     <div
       className="presentation-wrapper"
@@ -137,6 +140,22 @@ export default function PresentationContainer() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
+      {/* Top bar: logo + linka od slidu 4, kromě slidu 6 */}
+      {showTopBar && (
+        <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none flex flex-col">
+          <div className="flex items-center justify-end px-8 py-3">
+            <img
+              src={logoSrc}
+              alt="(ant)"
+              className="h-6 w-auto"
+            />
+          </div>
+          <div className="px-8">
+            <div className={`h-[2px] ${isDarkBackground(backgroundColor) ? 'bg-white/20' : 'bg-black/15'}`} />
+          </div>
+        </div>
+      )}
+
       {/* Keyboard navigation handler */}
       <Navigation
         currentSlide={currentSlide}
